@@ -1,0 +1,24 @@
+/**
+ * Styles
+ *
+ * Frontend+Backend.
+ */
+.wp-block-ab-animate {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+  .wp-block-ab-animate.ab-is-hidden {
+    opacity: 0; }
+
+.wp-block-ab-animate[data-scroll-class^='fadeIn'],
+.wp-block-ab-animate[data-scroll-class^='bounceIn'],
+.wp-block-ab-animate[data-scroll-class^='flipIn'],
+.wp-block-ab-animate[data-scroll-class^='slideIn'],
+.wp-block-ab-animate[data-scroll-class^='zoomIn'],
+.wp-block-ab-animate[data-scroll-class='rollIn'],
+.wp-block-ab-animate[data-scroll-class='jackInTheBox'] {
+  opacity: 0; }
+
+.wp-block-ab-animate.ab-is-hidden.ab-animation-end {
+  opacity: 1; }

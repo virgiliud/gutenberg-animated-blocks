@@ -1,0 +1,8 @@
+/*
+ * scrollClass jQuery Plugin v1.2.0
+ *
+ * Author: Virgiliu Diaconu
+ * http://www.virgiliu.com
+ * Licensed under the MIT license.
+ */
+!function(l,o,t,e){"use strict";l.scrollClass=function(e,s){var n=this;n.$el=l(e),n.el=e,n.$win=l(o),n.$doc=l(t);var r,i,a=!1;n.init=function(){n.options=l.extend({},l.scrollClass.defaultOptions,s),n.delay=n.$el.data("scrollDelay")??n.options.delay,n.threshold=n.$el.data("scrollThreshold")??n.options.threshold,n.offsetTop=n.$el.data("scrollOffsetTop")??n.options.offsetTop,n.reset=n.$el.data("scrollReset")??n.options.reset,n.onScroll()},n.scrollHandler=function(){!0===a&&!1===n.reset||n.onScroll()},n.onScroll=function(){if(n.inViewport()){if(!0===a&&!0===n.reset)return;"function"==typeof n.options.callback&&n.options.callback.call(e),o.clearTimeout(r),r=o.setTimeout((function(){n.toggleScrollClass()}),n.delay),a=!0}else!0===n.reset&&(!0===a&&"function"==typeof n.options.resetCallback&&n.options.resetCallback.call(e),n.toggleScrollClass(),a=!1)},n.toggleScrollClass=function(){var l=n.$el.data("scrollClass");!0===a?n.$el.addClass(l):n.$el.removeClass(l)},n.inViewport=function(){var l=n.el.getBoundingClientRect(),o=n.$win.height(),t=n.threshold;o<l.height&&(t=50);var e=t/100*l.height;e=!1===a?e:1;return l.top+e<=o&&l.bottom-e>=n.offsetTop},n.init(),n.$win.on("scroll",(function(){var l,o;l=n.scrollHandler,o=n.options.throttle,i||(i=!0,setTimeout((function(){l(),i=!1}),o))}))},l.scrollClass.defaultOptions={delay:10,threshold:50,reset:!1,offsetTop:0,throttle:50},l.fn.scrollClass=function(o){return this.each((function(){new l.scrollClass(this,o)}))}}(jQuery,window,document);

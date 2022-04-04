@@ -1,0 +1,35 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "ab/animate",
+	"title": "Animated Block",
+	"category": "design",
+	"description": "Add blocks within the animated block.",
+	"keywords": [ "animate", "scroll", "fade", "transitions" ],
+	"version": "1.1.0",
+	"textdomain": "animated-blocks",
+	"attributes": {
+		"animation": {
+	    "type": "string"
+	  },
+	  "customClass": {
+	    "type": "string"
+	  },
+		"duration": {
+	    "type": "string"
+	  },
+	  "delay": {
+	    "type": "string"
+	  },
+	  "threshold": {
+	    "type": "number"
+	  },
+		"offsetTop": {
+	    "type": "string"
+	  },
+	  "hideEl": {
+	    "type": "boolean",
+	    "default": false
+	  }
+	}
+}
