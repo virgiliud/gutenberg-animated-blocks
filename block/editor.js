@@ -8,8 +8,7 @@
 	  // Remove animation class after animation ends
 		$('.sb-animate-demo').on("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function() {
 			var $this = $(this),
-					animation = $this.attr("data-ab-animation");
-
+			animation = $this.attr("data-ab-animation");
 	    $this.removeClass(animation);
 		});
 	});
