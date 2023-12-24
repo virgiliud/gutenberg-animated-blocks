@@ -1,7 +1,7 @@
 /*
  * Animated Block
  *
- * Version: 1.1.0
+ * Version: 1.1.1
  */
 (function($) {
 	// Animated block element
@@ -10,8 +10,8 @@
 	// Initialize
 	$animatedBlock.scrollClass();
 
-  // On animation end
-	$animatedBlock.on("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function() {
+  	// On animation end
+	$animatedBlock.on("animationend", function() {
 		$(this).addClass('ab-animation-end');
 	});
 })(jQuery);

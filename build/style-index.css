@@ -1,0 +1,29 @@
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/styles/style.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front and in the editor.
+ */
+.wp-block-ab-animate {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+.wp-block-ab-animate.ab-is-hidden {
+  opacity: 0;
+}
+
+.wp-block-ab-animate[data-scroll-class^=fadeIn],
+.wp-block-ab-animate[data-scroll-class^=bounceIn],
+.wp-block-ab-animate[data-scroll-class^=flipIn],
+.wp-block-ab-animate[data-scroll-class^=slideIn],
+.wp-block-ab-animate[data-scroll-class^=zoomIn],
+.wp-block-ab-animate[data-scroll-class=rollIn],
+.wp-block-ab-animate[data-scroll-class=jackInTheBox] {
+  opacity: 0;
+}
+
+.wp-block-ab-animate.ab-is-hidden.ab-animation-end {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=style-index.css.map*/
