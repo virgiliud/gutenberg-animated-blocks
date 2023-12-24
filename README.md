@@ -14,7 +14,8 @@ Add scroll-based animations to WordPress Gutenberg blocks.
 - **Threshold**: Add animation when x% of the element enters the screen.
 - **Start with Opacity 0**: Set the element to opacity 0 when the page loads. The option works for elements transitioning to 100% opacity through CSS.
 - **Offset Top** (available in the block's advanced settings): Number of pixels to offset the animated block from the top of the page. Useful when a page has a fixed top navigation bar.
-- Class name "ab-animation-end" is added to the animated block after the CSS animation has ended. This class name can be used to add custom styles.
+
+The class name "ab-animation-end" is added to the animated block after the CSS animation has ended. This class name can be used to add custom styles.
 
 ## Requirements
 PHP 5.6+ is recommended, WordPress 5.0+, and Gutenberg must be active.
