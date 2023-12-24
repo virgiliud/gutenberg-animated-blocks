@@ -18,7 +18,7 @@ Add scroll-based animations to WordPress Gutenberg blocks.
 The class name "ab-animation-end" is added to the animated block after the CSS animation has ended. This class name can be used to add custom styles.
 
 ## Requirements
-PHP 5.6+ is recommended, WordPress 5.0+, and Gutenberg must be active.
+PHP 7.0+ is recommended, WordPress 5.9+, and Gutenberg must be active.
 
 ## Documentation
 Select Animated Block from the Layout Elements group and add any content blocks within it. Select an animation from the dropdown list or add your own custom CSS class. The selected animation or custom CSS class will be added to the block when the user scrolls to it.
