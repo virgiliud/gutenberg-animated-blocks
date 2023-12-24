@@ -3,12 +3,12 @@
 ## Description
 Add scroll-based animations to WordPress Gutenberg blocks.
 
-## FEATURES
+## Features
 - Choose from 76 cross-browser CSS3 animations or add your own.
 - Preview animations in the editor.
 - Adjust the animation duration, delay, scroll threshold, and offset.
 
-## SETTINGS
+## Settings
 - **Duration**: The speed of the animation in milliseconds.
 - **Delay**: How many milliseconds to wait before animating the element.
 - **Threshold**: Add animation when x% of the element enters the screen.
@@ -16,10 +16,10 @@ Add scroll-based animations to WordPress Gutenberg blocks.
 - **Offset Top** (available in the block's advanced settings): Number of pixels to offset the animated block from the top of the page. Useful when a page has a fixed top navigation bar.
 - Class name "ab-animation-end" is added to the animated block after the CSS animation has ended. This class name can be used to add custom styles.
 
-## REQUIREMENTS
+## Requirements
 PHP 5.6+ is recommended, WordPress 5.0+, and Gutenberg must be active.
 
-## DOCUMENTATION
+## Documentation
 Select Animated Block from the Layout Elements group and add any content blocks within it. Select an animation from the dropdown list or add your own custom CSS class. The selected animation or custom CSS class will be added to the block when the user scrolls to it.
 
 Animated Block acts as a container block, allowing you to nest an unlimited number of blocks within it.
