@@ -82,9 +82,9 @@ function ab_render_animated_block( $attributes, $content ) {
 /**
  * Register the block and its assets.
  */
-function create_animated_block() {
+function ab_create_animated_block() {
     register_block_type( __DIR__ . '/build', array(
         'render_callback' => 'ab_render_animated_block'
     ));
 }
-add_action( 'init', 'create_animated_block' );
+add_action( 'init', 'ab_create_animated_block' );
