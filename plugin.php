@@ -27,11 +27,9 @@ class AnimatedBlocks {
      * Registers the plugin.
      */
     public static function register() {
-        $plugin = new self();
-
-        add_action( 'init', array( $plugin, 'register_assets' ) );
-        add_action( 'enqueue_block_assets', array( $plugin, 'enqueue_block_assets' ) );
-        add_action( 'init', array( $plugin, 'create_animated_block' ) );
+        add_action('init', array('AnimatedBlocks', 'register_assets'));
+        add_action('enqueue_block_assets', array('AnimatedBlocks', 'enqueue_block_assets'));
+        add_action('init', array('AnimatedBlocks', 'create_animated_block'));
     }
 
     /**
