@@ -37,7 +37,7 @@ class AnimatedBlocks {
     /**
      * Register the scripts and styles for the block.
      */
-    public function register_assets() {
+    public static function register_assets() {
         // Animation styles
         wp_register_style(
             'ab-animate',
@@ -68,7 +68,7 @@ class AnimatedBlocks {
     /**
      * Enqueue the block styles for both front-end and editor.
      */
-    public function enqueue_block_assets() {
+    public static function enqueue_block_assets() {
         wp_enqueue_style( 'ab-animate' );
     }
 
@@ -81,7 +81,7 @@ class AnimatedBlocks {
      * @param string $content Block content.
      * @return string Rendered block content.
      */
-    public function render_animated_block( $attributes, $content ) {
+    public static function render_animated_block( $attributes, $content ) {
         wp_enqueue_script( 'ab-scroll-class' );
         wp_enqueue_script( 'ab-animated-block' );
 
@@ -91,9 +91,9 @@ class AnimatedBlocks {
     /**
      * Register the block and its assets.
      */
-    public function create_animated_block() {
+    public static function create_animated_block() {
         register_block_type( __DIR__ . '/build', array(
-            'render_callback' => array( $this, 'render_animated_block' )
+            'render_callback' => array('AnimatedBlocks', 'render_animated_block')
         ));
     }
 }
