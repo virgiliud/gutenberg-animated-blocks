@@ -16,75 +16,87 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+    exit;
 }
 
-/**
- * Register the scripts and styles for the block.
- */
-function ab_register_assets() {
-	// Animation styles
-    wp_register_style(
-        'ab-animate',
-        plugins_url( '/assets/css/animate.min.css', __FILE__ ),
-        array(),
-        filemtime( plugin_dir_path( __FILE__ ) . 'assets/css/animate.min.css' )
-    );
+class AnimatedBlocks {
 
-	// ScrollClass script
-    wp_register_script(
-        'ab-scroll-class',
-        plugins_url( '/assets/js/scrollClass.min.js', __FILE__ ),
-        array( 'jquery' ),
-        filemtime( plugin_dir_path( __FILE__ ) . 'assets/js/scrollClass.min.js' ),
-        true
-    );
+    const VERSION = '1.1.2'; // Plugin version
 
-	// Animated block front-end script
-    wp_register_script(
-        'ab-animated-block',
-        plugins_url( '/assets/js/frontend.js', __FILE__ ),
-        array( 'jquery' ),
-        filemtime( plugin_dir_path( __FILE__ ) . 'assets/js/frontend.js' ),
-        true
-    );
+    /**
+     * Registers the plugin.
+     */
+    public static function register() {
+        $plugin = new self();
+
+        add_action( 'init', array( $plugin, 'register_assets' ) );
+        add_action( 'enqueue_block_assets', array( $plugin, 'enqueue_block_assets' ) );
+        add_action( 'init', array( $plugin, 'create_animated_block' ) );
+    }
+
+    /**
+     * Register the scripts and styles for the block.
+     */
+    public function register_assets() {
+        // Animation styles
+        wp_register_style(
+            'ab-animate',
+            plugins_url( '/assets/css/animate.min.css', __FILE__ ),
+            array(),
+            self::VERSION
+        );
+
+        // ScrollClass script
+        wp_register_script(
+            'ab-scroll-class',
+            plugins_url( '/assets/js/scrollClass.min.js', __FILE__ ),
+            array( 'jquery' ),
+            self::VERSION,
+            true
+        );
+
+        // Animated block front-end script
+        wp_register_script(
+            'ab-animated-block',
+            plugins_url( '/assets/js/frontend.js', __FILE__ ),
+            array( 'jquery' ),
+            self::VERSION,
+            true
+        );
+    }
+
+    /**
+     * Enqueue the block styles for both front-end and editor.
+     */
+    public function enqueue_block_assets() {
+        wp_enqueue_style( 'ab-animate' );
+    }
+
+    /**
+     * Enqueue the block specific front-end scripts.
+     * This method is used as a render callback for the block to enqueue
+     * the frontend JavaScript when the block is rendered on a page.
+     *
+     * @param array $attributes Block attributes.
+     * @param string $content Block content.
+     * @return string Rendered block content.
+     */
+    public function render_animated_block( $attributes, $content ) {
+        wp_enqueue_script( 'ab-scroll-class' );
+        wp_enqueue_script( 'ab-animated-block' );
+
+        return $content;
+    }
+
+    /**
+     * Register the block and its assets.
+     */
+    public function create_animated_block() {
+        register_block_type( __DIR__ . '/build', array(
+            'render_callback' => array( $this, 'render_animated_block' )
+        ));
+    }
 }
-add_action( 'init', 'ab_register_assets' );
 
-/**
- * Enqueue the block styles for both front-end and editor.
- */
-function ab_enqueue_block_assets() {
-    wp_enqueue_style( 'ab-animate' );
-}
-add_action( 'enqueue_block_assets', 'ab_enqueue_block_assets' );
-
-/**
- * Enqueue the block specific front-end scripts.
- *
- * This function is used as a render callback for the block to enqueue
- * the frontend JavaScript when the block is rendered on a page.
- *
- * @param array $attributes Block attributes.
- * @param string $content Block content.
- * @return string Rendered block content.
- */
-function ab_render_animated_block( $attributes, $content ) {
-	// Enqueue scrollClass script
-    wp_enqueue_script( 'ab-scroll-class' );
-
-    // Enqueue animated block script
-    wp_enqueue_script( 'ab-animated-block' );
-
-    return $content;
-}
-
-/**
- * Register the block and its assets.
- */
-function ab_create_animated_block() {
-    register_block_type( __DIR__ . '/build', array(
-        'render_callback' => 'ab_render_animated_block'
-    ));
-}
-add_action( 'init', 'ab_create_animated_block' );
+// Register the plugin.
+AnimatedBlocks::register();
