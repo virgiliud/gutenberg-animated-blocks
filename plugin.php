@@ -35,6 +35,7 @@ if ( ! class_exists( 'AnimatedBlocks' ) ) {
 		public static function register() {
 			add_action( 'init', array( __CLASS__, 'register_assets' ) );
 			add_action( 'init', array( __CLASS__, 'create_animated_block' ) );
+			add_action( 'enqueue_block_assets', array( __CLASS__, 'enqueue_editor_block_assets' ) );
 		}
 
 		/**
@@ -82,6 +83,15 @@ if ( ! class_exists( 'AnimatedBlocks' ) ) {
 				$version,
 				true
 			);
+		}
+
+		/**
+		 * Enqueue animation styles inside the editor content canvas.
+		 */
+		public static function enqueue_editor_block_assets() {
+			if ( is_admin() ) {
+				wp_enqueue_style( 'ab-animate' );
+			}
 		}
 
 		/**
