@@ -7,7 +7,7 @@
  * Author URI: http://virgiliudiaconu.com/
  * Requires at least: 5.9
  * Requires PHP: 7.0
- * Version: 1.1.3
+ * Version: 1.1.4
  * License: GPL-2.0-or-later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: animated-blocks
@@ -66,23 +66,6 @@ if ( ! class_exists( 'AnimatedBlocks' ) ) {
 				$version
 			);
 
-			// ScrollClass script.
-			wp_register_script(
-				'ab-scroll-class',
-				plugins_url( '/assets/js/scrollClass.min.js', __FILE__ ),
-				array( 'jquery' ),
-				$version,
-				true
-			);
-
-			// Animated block front-end script.
-			wp_register_script(
-				'ab-animated-block',
-				plugins_url( '/assets/js/frontend.js', __FILE__ ),
-				array( 'jquery' ),
-				$version,
-				true
-			);
 		}
 
 		/**
@@ -105,8 +88,6 @@ if ( ! class_exists( 'AnimatedBlocks' ) ) {
 		 */
 		public static function render_animated_block( $attributes, $content ) {
 			wp_enqueue_style( 'ab-animate' );
-			wp_enqueue_script( 'ab-scroll-class' );
-			wp_enqueue_script( 'ab-animated-block' );
 
 			return $content;
 		}
