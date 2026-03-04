@@ -1,0 +1,14 @@
+node_modules/
+
+# OS files
+.DS_Store
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# Package manager logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

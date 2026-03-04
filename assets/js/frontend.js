@@ -1,7 +1,7 @@
 /*
  * Animated Block
  *
- * Version: 1.1.1
+ * Version: 1.1.3
  */
 (function($) {
 	// Animated block element
